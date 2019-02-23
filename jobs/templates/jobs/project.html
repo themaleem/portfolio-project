@@ -1,5 +1,5 @@
-
 <!doctype html>
+{% load staticfiles %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -10,7 +10,6 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
 
     <!-- Bootstrap core CSS -->
-<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -29,117 +28,21 @@
           font-size: 3.5rem;
         }
       }
-      /* project css */
-      /*
- * Globals
- */
-
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
-
-/* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: .05rem solid #fff;
-}
-
-
-/*
- * Base structure
- */
-
-html,
-body {
-  height: 100%;
-  background-color: #333;
-}
-
-body {
-  /* display: -ms-flexbox; */
-  display: flex;
-  color: #fff;
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-}
-
-.cover-container {
-  max-width: 72em;
-}
-
-
-/*
- * Header
- */
-.masthead {
-  margin-bottom: 2rem;
-}
-
-.masthead-brand {
-  margin-bottom: 0;
-}
-
-.nav-masthead .nav-link {
-  padding: .25rem 0;
-  font-weight: 700;
-  color: rgba(255, 255, 255, .5);
-  background-color: transparent;
-  border-bottom: .25rem solid transparent;
-}
-
-.nav-masthead .nav-link:hover,
-.nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
-}
-
-.nav-masthead .nav-link + .nav-link {
-  margin-left: 1rem;
-}
-
-.nav-masthead .active {
-  color: #fff;
-  border-bottom-color: #fff;
-}
-
-@media (min-width: 48em) {
-  .masthead-brand {
-    float: left;
-  }
-  .nav-masthead {
-    float: right;
-  }
-}
-
-
-.mastfoot {
-  color: rgba(255, 255, 255, .5);
-}
-/* Jobs css */
-.job{
-  color: #333;
-}
-
+      
 
     </style>
     <!-- Custom styles for this template -->
-    <!-- <link href="project.css" rel="stylesheet"> -->
+    <link href="{% static 'css/project.css' %} " rel="stylesheet">
   </head>
   <body class="text-center">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="masthead mb-auto pt-1">
-    <div class="inner">
+    <header class="masthead mb-auto pt-1">
+      <div class="inner">
       <h3 class="masthead-brand"><a href="{% url 'home' %}">Olumide Bello</a></h3>
       <nav class="nav nav-masthead justify-content-center">
-        <a class="nav-link" href="cover.html">Get my résumé</a>
-        <a class="nav-link active" href="project.html">Projects</a>
-        <a class="nav-link" href="blog.html">Blog</a>
-        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link" href="{% static 'files/resume.pdf' %}">Résumé</a>
+        <a class="nav-link active" href="{% url 'project' %}">Projects</a>
+        <a class="nav-link" href="{% url 'blog:home' %}">Blog</a>
       </nav>
     </div>
   </header>
@@ -151,7 +54,7 @@ body {
           <div class="card mb-4 box-shadow-">
             <img src="{{job.image.url}}" alt="" class="card-img-top">
             <div class="card-body">
-              <h4 class="card-text">{{job.summary}}</h4>
+              <h4 class="card-text"><a href="#">{{job.summary}} </a></h4>
             </div>
           </div>
         </div>

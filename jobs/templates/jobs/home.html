@@ -1,5 +1,5 @@
-
 <!doctype html>
+{% load staticfiles %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -10,57 +10,46 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
 
     <!-- Bootstrap core CSS -->
-<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
     
     <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
+    <link href="{% static 'css/cover.css' %}" rel="stylesheet">
     
   </head>
-  <body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="masthead mb-auto pt-1">
+  <body class="">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto pt-1 text-center">
     <div class="inner">
       <h3 class="masthead-brand">Olumide Bello</h3>
       <nav class="nav nav-masthead justify-content-center">
-        <a class="nav-link active" href="#">About</a>
+        <a class="nav-link active" href="{% url 'home' %}">About</a>
         <a class="nav-link" href="{% url 'project' %}">Projects</a>
-        <a class="nav-link" href="blog.html">Blog</a>
-        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link" href="{% url 'blog:home' %}">Blog</a>
+        <a class="nav-link" href="#contact">Contact</a>
       </nav>
     </div>
   </header>
-
-  <main role="main" class="inner cover">
+  
+  <main role="main" class="pt-5 inner cover text-center">
         
     <h1 class="cover-heading">Home page.</h1>
     <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
     <p class="lead">
-      <a href="contact.html" class="btn btn-lg btn-secondary">Connect with Olumide</a>
+      <a href="https://www.linkedin.com/in/olumide-bello-6b32b28a/" class="btn btn-lg btn-secondary">Connect with Olumide</a>
     </p>
   </main>
-
-  <footer class="mastfoot mt-auto">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 pt-5">loreLorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat, maiores iure id odit in tempora sunt ipsam aperiam voluptates incidunt laudantium, labore, amet totam magni. Quas rem voluptate illo.lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis quos voluptates incidunt ab, dolor dolore aliquid dolorem quam quasi eligendi optio vel soluta qui commodi itaque mollitia neque sit quis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus quidem accusantium, blanditiis tempora reiciendis quaerat? Illum aliquid ducimus reprehenderit veritatis, vero consequatur ex mollitia aliquam. Deleniti praesentium voluptas ab numquam.m</div>
+      <div class="col-lg-4 pt-5">loreLorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat, maiores iure id odit in tempora sunt ipsam aperiam voluptates incidunt laudantium, labore, amet totam magni. Quas rem voluptate illo.lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis quos voluptates incidunt ab, dolor dolore aliquid dolorem quam quasi eligendi optio vel soluta qui commodi itaque mollitia neque sit quis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus quidem accusantium, blanditiis tempora reiciendis quaerat? Illum aliquid ducimus reprehenderit veritatis, vero consequatur ex mollitia aliquam. Deleniti praesentium voluptas ab numquam.m</div>
+      <div class="col-lg-4 pt-5">lLorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat, maiores iure id odit in tempora sunt ipsam aperiam voluptates incidunt laudantium, labore, amet totam magni. Quas rem voluptate illo.lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis quos voluptates incidunt ab, dolor dolore aliquid dolorem quam quasi eligendi optio vel soluta qui commodi itaque mollitia neque sit quis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus quidem accusantium, blanditiis tempora reiciendis quaerat? Illum aliquid ducimus reprehenderit veritatis, vero consequatur ex mollitia aliquam. Deleniti praesentium voluptas ab numquam.orem</div>
+      <div id="contact" class="col-lg-4 pt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat, maiores iure id odit in tempora sunt ipsam aperiam voluptates incidunt laudantium, labore, amet totam magni. Quas rem voluptate illo.lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis quos voluptates incidunt ab, dolor dolore aliquid dolorem quam quasi eligendi optio vel soluta qui commodi itaque mollitia neque sit quis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus quidem accusantium, blanditiis tempora reiciendis quaerat? Illum aliquid ducimus reprehenderit veritatis, vero consequatur ex mollitia aliquam. Deleniti praesentium voluptas ab numquam.</div>
+    </div>
+  </div>
+  <footer class="mastfoot mt-auto text-center">
     <div class="inner">
-      <p>&copy {% now "Y" %} Made with Love, Olumide Bello </a>.</p>
+      <p>&copy {% now "Y" %} Made with Love, Olumide Bello.</p>
     </div>
   </footer>
 </div>
