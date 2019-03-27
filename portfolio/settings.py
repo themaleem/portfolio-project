@@ -25,7 +25,7 @@ SECRET_KEY = 'y%lk$o(70zt_e2v(wjlsy)t&(to7jh-*m*s5bummj=_t8j-ld('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['maleemNG.pythonanywhere.com',]
+ALLOWED_HOSTS = ['maleemNG.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jobs',
-    'blog',
 ]
 
 MIDDLEWARE = [
@@ -120,9 +119,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     STATIC_DIR,
-# ]
-STATIC_ROOT='/home/maleemNG/portfolio-project/static'
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+# STATIC_ROOT='/home/maleemNG/portfolio-project/static'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL ='/media/'

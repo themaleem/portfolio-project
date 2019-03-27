@@ -28,42 +28,41 @@
           font-size: 3.5rem;
         }
       }
-
+      h4{
+          color: white;
+      }
+      
 
     </style>
     <!-- Custom styles for this template -->
     <link href="{% static 'css/project.css' %} " rel="stylesheet">
   </head>
-  <body class="text-center">
+  <body class="">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto pt-1">
-      <div class="inner">
-      <h3 class="masthead-brand"><a href="{% url 'home' %}">Olumide Bello</a></h3>
-      <nav class="nav nav-masthead justify-content-center">
-        <a class="nav-link" href="{% url 'home' %}">About</a>
-        <a class="nav-link" href="{% static 'files/resume.pdf' %}">Résumé</a>
-        <a class="nav-link active" href="{% url 'project' %}">Projects</a>
-        <a class="nav-link" target="_blank" href="https://medium.com/@zizo9585">Blog</a>
-        <a class="nav-link" href="#contact">Contact</a>
-      </nav>
-    </div>
+      <header class="masthead mb-auto pt-1 text-center">
+        <div class="inner">
+          <h3 class="masthead-brand"><a class="nav-link active" href="{% url 'home' %}">Olumide Bello</a></h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="{% url 'home' %}">About</a>
+            <a class="nav-link" href="{% static 'files/resume.pdf' %}">Résumé</a>
+            <a class="nav-link" href="{% url 'project' %}">Projects</a>
+            <a class="nav-link" target="_blank" href="https://medium.com/@zizo9585">Blog</a>
+            <a class="nav-link" href="#contact">Contact</a>
+          </nav>
+        </div>
   </header>
   <div class="container pt-5">
-    <h2 class="pb-3">P R O J E C T S</h2>
+    <h2 class="text-center pb-3">P R O J E C T: {{job.summary}}</h2>
     <div class="row">
-        {% for job in jobs %}
-        <div class="job col-md-4 pt-5">
-          <div class="card mb-4 box-shadow-">
-            <img src="{{job.image.url}}" alt="" class="card-img-top">
-            <div class="card-body">
-              <h4 class="card-text"><a href="{% url 'jobdetail' job.id %}">{{job.summary}} </a></h4>
-            </div>
-          </div>
+        
+        <div class="job col-lg-12 pt-5">
+            <img src="{{job.image.url}}" alt="" class="img-fluid">    <br> <br>
+          <h4 class="">{{job.summary}} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum aliquam tempora, asperiores architecto harum iusto temporibus deleniti ut, consequatur voluptates aliquid optio reiciendis ipsa dolor tempore obcaecati eius debitis iure.</h4>
         </div>
-        {% endfor %}
+        
     </div>
   </div>
-
+  
 
   <footer class="mastfoot mt-auto">
     <div class="inner">

@@ -10,3 +10,9 @@ def project(request):
         'jobs': jobs
     }
     return render(request,'jobs/project.html',context)
+def jobdetail(request, job_id):
+    job = Jobs.objects.get(id=job_id)
+    context = {
+        'job': job
+    }
+    return render(request,'jobs/details.html',context)
