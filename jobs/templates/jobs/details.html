@@ -28,10 +28,18 @@
           font-size: 3.5rem;
         }
       }
-      h4{
+      div.job {
           color: white;
       }
-      
+      .job span{
+        font-size: 0.6em;
+      }
+      .job a{
+        color:darkorange;
+      }
+      .job a:hover{
+        color:darkorange;
+      }
 
     </style>
     <!-- Custom styles for this template -->
@@ -43,30 +51,44 @@
         <div class="inner">
           <h3 class="masthead-brand"><a class="nav-link active" href="{% url 'home' %}">Olumide Bello</a></h3>
           <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="{% url 'home' %}">About</a>
+            <a class="nav-link " href="{% url 'home' %}">About</a>
             <a class="nav-link" href="{% static 'files/resume.pdf' %}">Résumé</a>
-            <a class="nav-link" href="{% url 'project' %}">Projects</a>
+            <a class="nav-link active" href="{% url 'project' %}">Projects</a>
             <a class="nav-link" target="_blank" href="https://medium.com/@zizo9585">Blog</a>
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="{% url 'home' %}">Contact</a>
           </nav>
         </div>
   </header>
   <div class="container pt-5">
-    <h2 class="text-center pb-3">P R O J E C T: {{job.summary}}</h2>
+    <h2 class="text-center pb-3">P R O J E C T: {{job.title}}</h2>
     <div class="row">
         
         <div class="job col-lg-12 pt-5">
             <img src="{{job.image.url}}" alt="" class="img-fluid">    <br> <br>
-          <h4 class="">{{job.summary}} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum aliquam tempora, asperiores architecto harum iusto temporibus deleniti ut, consequatur voluptates aliquid optio reiciendis ipsa dolor tempore obcaecati eius debitis iure.</h4>
+          <h5>
+            Project summary: <br> 
+            <span>
+              {{job.summary}}.
+              {% if job.medium_link %}
+                You will find a more detailed documentation of the project <a href="{{job.medium_link}}">here</a>
+              {% endif %}
+            </span>
+          </h5>
+          <br>
+          
+          <h5>Project status: <span>{{job.status}}</span> </h5> <br>
+          
+          <h5> Codebase : <span>View project on <a href="{{job.github_link}}"> Github </a></span></h5>
+          
         </div>
         
     </div>
   </div>
   
 
-  <footer class="mastfoot mt-auto">
+  <footer class="mastfoot mt-auto text-center">
     <div class="inner">
-      <p>&copy {% now "Y" %} Made with Love, Olumide Bello.</p>
+      <p>&copy {% now "Y" %} Built with Love, Olumide Bello.</p>
     </div>
   </footer>
 </div>

@@ -16,17 +16,19 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'css/cover.css' %}" rel="stylesheet">
     <style>
-      .detail a{
-        border-bottom: 4px solid white;
+      .row a{
+        color:darkorange;
       }
-      .detail a:hover{
-        text-decoration: none;
-        border-bottom-color: rgba(255, 255, 255, .25);
-        
-      }
+      .row a:hover{
+        color:darkorange;
+      }  
+
       .description h3{
         border-top: 4px solid white;
         border-radius: 4px;
+      }
+      form li{
+        display: none;
       }
     </style>
 
@@ -48,9 +50,9 @@
 
   <main role="main" class="pt-5 inner cover text-center">
 
-    <h1 class="cover-heading"><img class="img-fluid" src="/media/images/2a5a0efbcf9645f98ae7b6cd4ad95fd1--outsider-art-leica.jpg" alt=""></h1>
+    <h1 class="cover-heading"><img class="img-fluid" src="/media/images/maleem-serpia.jpg" alt=""></h1>
     <p class="lead">
-        Hi, i'm Olumide "Maleem" Bello, an entry-level fullstack web developer.
+        Hi, i'm Olumide "Maleem" Bello, an entry-level fullstack web developer, 🐍Python programmer and automation engineer.
     </p>
     <p class="lead">
       <a target="_blank" href="https://www.linkedin.com/in/olumide-bello-6b32b28a/" class="btn btn-lg btn-secondary">Connect with Olumide</a>
@@ -91,10 +93,38 @@
         
       </div>
     </div>
+    <div id="contact" class="text-center justify-content-center pt-5">
+      <h2>HAVE A COOL WEB PROJECT YOU NEED ME TO WORK WITH YOU ON?</h2>
+      <h6>Or perhaps you want to take me on a hangout? 😊</h6>
+      <form action="{% url 'home' %}" method="POST">
+          <div class="form-group">
+            {% csrf_token %}
+            <div class="">
+              {{ form.name.errors }}
+              {{ form.name.label_tag }}
+              {{ form.name }}
+            </div>
+            <div class="">
+              {{ form.email.errors }}
+              {{ form.email.label_tag }}
+              {{ form.email }}
+            </div>
+            <div class="">
+              {{ form.message.errors }}
+              {{ form.message.label_tag }}
+              {{ form.message }}
+            </div>
+            <input type="submit" class="btn btn-secondary" value="Shoot!">
+          </div>
+      </form>
+      {%if response %}
+        <h1>{{response}}</h1>
+        {% endif %}
+    </div>
   </div>
   <footer class="mastfoot mt-auto text-center">
     <div class="inner">
-      <p>&copy {% now "Y" %} Made with Love, Olumide Bello.</p>
+      <p>&copy {% now "Y" %} Built with Love, Olumide Bello.</p>
     </div>
   </footer>
 </div>

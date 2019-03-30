@@ -16,6 +16,12 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_DIR= MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "themaleem@gmail.com"
+EMAIL_HOST_PASSWORD = 'Facebook01.'
+EMAIL_PORT='587'
+EMAIL_USE_TLS = True
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
