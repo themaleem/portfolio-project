@@ -6,7 +6,7 @@ from django.conf import settings
 # Create your views here.
 def home(request):
     form = ContactForm(request.POST)
-    
+
     context = {
         'form':form
     }
@@ -15,10 +15,10 @@ def home(request):
         message = form.cleaned_data['message'] + form.cleaned_data['email']
         emailFrom = form.cleaned_data['email']
         emailTo = [settings.EMAIL_HOST_USER]
-        # send_mail(subject, message, emailFrom, emailTo, fail_silently=False)
+        send_mail(subject, message, emailFrom, emailTo, fail_silently=True)
         response = 'Message Sent! I\'ll get back to you soon'
         context = {'response': response, 'form': form}
-        
+
 
 
     return render(request, 'jobs/home.html',context)
@@ -35,4 +35,4 @@ def jobdetail(request, job_id):
         'job': job
     }
     return render(request, 'jobs/details.html', context)
-    
+

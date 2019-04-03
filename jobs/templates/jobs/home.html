@@ -21,7 +21,7 @@
       }
       .row a:hover{
         color:darkorange;
-      }  
+      }
 
       .description h3{
         border-top: 4px solid white;
@@ -65,7 +65,7 @@
         <p>
             I am result-oriented person, driven by a great passion for learning and the implementation of knowledge and dedicated to serving for excellence in any IT environment where problem-solving and growth is paramount.
         </p>
-        
+
       </div>
       <div class="col-lg-3 col-md-3 pt-5 description"> <h3>ACADEMIC CAREER</h3> </div>
       <div class="col-lg-8 col-md-8 offset-lg-1 offset-md-1 pt-5 detail">
@@ -74,7 +74,7 @@
             When i'm not whooping other people's buttocks at Scrabble<sup>TM</sup>  or  <a href="https://www.chess.com/member/olumidebello" target="_blank">Chess</a>, then i'm probably <a href="https://king.com/play/candycrush" target="_blank">Crushing Candies</a> or trying to automate something else with Python. Oh I may also be reading a book,or learning some new Spanish vocabs.
             I am fascinated by Tech, Art, Photography and Poetry. I like collecting gadgets, writing REALLY shorts quotes(or stories) on <a href="https://www.mirakee.com/beardedwriter" target="_blank" rel="noopener noreferrer"> Mirakee</a>
         </p>
-        
+
       </div>
       <div class="col-lg-3 col-md-3 pt-5 description"> <h3>WORK EXPERIENCES</h3> </div>
       <div class="col-lg-8 col-md-8 offset-lg-1 offset-md-1 pt-5 detail">
@@ -82,7 +82,7 @@
             When i'm not whooping other people's buttocks at Scrabble<sup>TM</sup>  or  <a href="https://www.chess.com/member/olumidebello" target="_blank">Chess</a>, then i'm probably <a href="https://king.com/play/candycrush" target="_blank">Crushing Candies</a> or trying to automate something else with Python. Oh I may also be reading a book,or learning some new Spanish vocabs.
             I am fascinated by Tech, Art, Photography and Poetry. I like collecting gadgets, writing REALLY shorts quotes(or stories) on <a href="https://www.mirakee.com/beardedwriter" target="_blank" rel="noopener noreferrer"> Mirakee</a>
         </p>
-        
+
       </div>
       <div class="col-lg-3 col-md-3 pt-5 description"> <h3>HOBBIES</h3> </div>
       <div class="col-lg-8 col-md-8 offset-lg-1 offset-md-1 pt-5 detail">
@@ -90,14 +90,14 @@
             When i'm not whooping other people's buttocks at Scrabble<sup>TM</sup>  or  <a href="https://www.chess.com/member/olumidebello" target="_blank">Chess</a>, then i'm probably <a href="https://king.com/play/candycrush" target="_blank">Crushing Candies</a> or trying to automate something else with Python. Oh I may also be reading a book,or learning some new Spanish vocabs.
             I am fascinated by Tech, Art, Photography and Poetry. I like collecting gadgets, writing REALLY shorts quotes(or stories) on <a href="https://www.mirakee.com/beardedwriter" target="_blank" rel="noopener noreferrer"> Mirakee</a> and on <a target="_blank" href="https://medium.com/@zizo9585">Medium</a>
         </p>
-        
+
       </div>
     </div>
     <div id="contact" class="text-center justify-content-center pt-5">
       <h2>HAVE A COOL WEB PROJECT YOU NEED ME TO WORK WITH YOU ON?</h2>
       <h6>Or perhaps you want to take me on a hangout? 😊</h6>
       <form action="{% url 'home' %}" method="POST">
-          <div class="form-group">
+          <div class="">
             {% csrf_token %}
             <div class="">
               {{ form.name.errors }}
