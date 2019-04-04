@@ -40,7 +40,14 @@
       .job a:hover{
         color:darkorange;
       }
-
+      footer{
+        font-size: 0.8em;
+      }
+      footer img{
+        width: 1.3em;
+        justify-content: center;
+        align-items: center;
+      }
     </style>
     <!-- Custom styles for this template -->
     <link href="{% static 'css/project.css' %} " rel="stylesheet">
@@ -88,7 +95,7 @@
 
   <footer class="mastfoot mt-auto text-center">
     <div class="inner">
-      <p>&copy {% now "Y" %} Built with Love, Olumide Bello.</p>
+      <p>&copy {% now "Y" %} Built with Love, Olumide Bello   <a href="https://linkedin.com/olumide-bello-6b32b28a"><img src="{% static "files/010-linkedin.svg" %}" alt="linkedin"></a>  <a href="https://twitter.com/olumidee__"><img src="{% static "files/013-twitter-1.svg" %}" alt="twitter"></a></p>
     </div>
   </footer>
 </div>
