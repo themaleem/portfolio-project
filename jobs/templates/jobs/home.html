@@ -16,10 +16,10 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'css/cover.css' %}" rel="stylesheet">
     <style>
-      .row a{
+      .row a, h6 a{
         color:darkorange;
       }
-      .row a:hover{
+      .row a:hover, h6 a:hover{
         color:darkorange;
       }
 
@@ -102,37 +102,34 @@
       </div>
     </div>
     <div id="contact" class="text-center justify-content-center pt-5">
-      <h2>HAVE A COOL WEB PROJECT YOU NEED ME TO WORK WITH YOU ON?</h2>
-      <h6>Or perhaps you want to take me on a hangout? 😊</h6>
-      <form action="{% url 'home' %}" method="POST">
-          <div class="">
-            {% csrf_token %}
-            <div class="">
-              {{ form.name.errors }}
-              {{ form.name.label_tag }}
-              {{ form.name }}
-            </div>
-            <div class="">
-              {{ form.email.errors }}
-              {{ form.email.label_tag }}
-              {{ form.email }}
-            </div>
-            <div class="">
-              {{ form.message.errors }}
-              {{ form.message.label_tag }}
-              {{ form.message }}
-            </div>
-            <input type="submit" class="btn btn-secondary" value="Shoot!">
-          </div>
-      </form>
-      {%if response %}
-        <h1>{{response}}</h1>
-        {% endif %}
+      <h4>HAVE A COOL WEB PROJECT YOU NEED ME TO WORK WITH YOU ON?</h4>
+      <small>Or perhaps you want to take me on a hangout? 😊</small>
+      <h6> You can either hit me up with the contact form below</h6>
+
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+        <form action="" method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+            <input type="text" name="name" class="form-control" id="username" placeholder="Name please?😊">
+        </div>
+        <div class="form-group">
+            <input type="email" name="email" class="form-control" id="email" placeholder="yourname@yourawesomecompany.com">
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" rows=5 name="message" id="message" placeholder="Message goes here"></textarea>
+        </div>
+        <input type="submit" class="btn btn-secondary" value="Shoot!">
+      </form>  
+        </div>
+      </div><br>
+      <h6>Or you can catch me directly <a href="tel:+2349072635118">here</a> </h6> 
+
     </div>
   </div>
   <footer class="pt-3 mastfoot mt-auto text-center">
     <div class="inner">
-      <p>&copy {% now "Y" %} Built with Love, Olumide Bello  <a href="https://www.linkedin.com/in/olumide-bello-6b32b28a/"><img src="{% static "files/010-linkedin.svg" %}" alt="linkedin"></a>  <a href="https://twitter.com/olumidee__"><img src="{% static "files/013-twitter-1.svg" %}" alt="twitter"></a></p>
+      <p>&copy {% now "Y" %}. Built with Love, Olumide Bello  <a href="https://www.linkedin.com/in/olumide-bello-6b32b28a/"><img src="{% static "files/010-linkedin.svg" %}" alt="linkedin"></a>  <a href="https://twitter.com/olumidee__"><img src="{% static "files/013-twitter-1.svg" %}" alt="twitter"></a></p>
     </div>
   </footer>
 </div>

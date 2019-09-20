@@ -1,27 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from jobs.models import Jobs
-from jobs.forms import *
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib import messages
+
 # Create your views here.
 def home(request):
-    form = ContactForm(request.POST)
-
-    context = {
-        'form':form
-    }
-    if form.is_valid():
+    if request.method=="POST":
         subject = "MESSAGE FROM VISITOR ON MALEEMNG"
-        message = form.cleaned_data['message'] + form.cleaned_data['email']
-        emailFrom = form.cleaned_data['email']
+        message = request.POST['message'] + request.POST['email']
+        emailFrom = request.POST['email']
         emailTo = [settings.EMAIL_HOST_USER]
-        send_mail(subject, message, emailFrom, emailTo, fail_silently=True)
-        response = 'Message Sent! I\'ll get back to you soon'
-        context = {'response': response, 'form': form}
+        send_mail(subject, message, emailFrom, emailTo, fail_silently=False)
+        # messages.success(request,'I got your invitiation to coffee 😊')
+        print(subject,emailFrom)
+        return redirect('home')
 
-
-
-    return render(request, 'jobs/home.html',context)
+    return render(request, 'jobs/home.html')
 
 def project(request):
     jobs = Jobs.objects.all()
