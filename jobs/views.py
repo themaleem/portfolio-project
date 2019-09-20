@@ -11,7 +11,7 @@ def home(request):
         message = request.POST['message'] + request.POST['email']
         emailFrom = request.POST['email']
         emailTo = [settings.EMAIL_HOST_USER]
-        send_mail(subject, message, emailFrom, emailTo, fail_silently=False)
+        send_mail(subject, message, emailFrom, emailTo, fail_silently=True)
         # messages.success(request,'I got your invitiation to coffee 😊')
         print(subject,emailFrom)
         return redirect('home')
