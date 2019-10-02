@@ -1,21 +1,7 @@
-<!doctype html>
+{% extends 'base.html' %}
 {% load staticfiles %}
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="generator" content="Jekyll v3.8.5">
-    <title>Olumide Bello</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
-
-    <!-- Bootstrap core CSS -->
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Custom styles for this template -->
-    <link href="{% static 'css/cover.css' %}" rel="stylesheet">
-    <style>
+{% block custom_css %}
+  <style>
       .row a, h6 a{
         color:darkorange;
       }
@@ -39,25 +25,12 @@
         align-items: center;
       }
     </style>
+    <link href="{% static 'css/cover.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
 
-  </head>
-  <body class="">
-  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="masthead mb-auto pt-1 text-center">
-    <div class="inner">
-      <h3 class="masthead-brand"><a class="nav-link active" href="{% url 'home' %}">Olumide Bello</a></h3>
-      <nav class="nav nav-masthead justify-content-center">
-        <a class="nav-link active" href="{% url 'home' %}">About</a>
-        <a class="nav-link" href="{% static 'files/resume.pdf' %}">Résumé</a>
-        <a class="nav-link" href="{% url 'project' %}">Projects</a>
-        <a class="nav-link" target="_blank" href="https://medium.com/@zizo9585">Blog</a>
-        <a class="nav-link" href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
   <main role="main" class="pt-5 inner cover text-center">
-
     <h1 class="cover-heading"><img class="img-fluid" src="/media/images/maleem-serpia.jpg" alt=""></h1>
     <p class="lead">
         Hi, i'm Olumide "Maleem" Bello, an entry-level fullstack web developer, 🐍Python programmer and automation engineer.
@@ -127,11 +100,4 @@
 
     </div>
   </div>
-  <footer class="pt-3 mastfoot mt-auto text-center">
-    <div class="inner">
-      <p>&copy {% now "Y" %}. Built with Love, Olumide Bello  <a href="https://www.linkedin.com/in/olumide-bello-6b32b28a/"><img src="{% static "files/010-linkedin.svg" %}" alt="linkedin"></a>  <a href="https://twitter.com/olumidee__"><img src="{% static "files/013-twitter-1.svg" %}" alt="twitter"></a></p>
-    </div>
-  </footer>
-</div>
-</body>
-</html>
+{% endblock content %}

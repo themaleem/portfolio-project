@@ -12,22 +12,26 @@ def home(request):
         emailFrom = request.POST['email']
         emailTo = [settings.EMAIL_HOST_USER]
         send_mail(subject, message, emailFrom, emailTo, fail_silently=True)
-        # messages.success(request,'I got your invitiation to coffee 😊')
-        print(subject,emailFrom)
+        messages.success(request,'I got your invitiation to coffee 😊')
         return redirect('home')
+    context={
+        'home':True
+    }
 
-    return render(request, 'jobs/home.html')
+    return render(request, 'jobs/home.html',context)
 
 def project(request):
     jobs = Jobs.objects.all()
+    jobs=jobs.order_by('-id')
     context = {
-        'jobs': jobs
+        'jobs': jobs,
+        'projects':True,
     }
     return render(request,'jobs/project.html',context)
 def jobdetail(request, job_id):
     job = Jobs.objects.get(id=job_id)
     context = {
-        'job': job
+        'job': job,
+        'details':True
     }
     return render(request, 'jobs/details.html', context)
-
