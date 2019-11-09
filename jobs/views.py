@@ -22,14 +22,14 @@ def home(request):
 
 def project(request):
     jobs = Jobs.objects.all()
-    jobs=jobs.order_by('-id')
+    jobs=jobs.order_by('-pk')
     context = {
         'jobs': jobs,
         'projects':True,
     }
     return render(request,'jobs/project.html',context)
-def jobdetail(request, job_id):
-    job = Jobs.objects.get(id=job_id)
+def jobdetail(request, job_pk):
+    job = Jobs.objects.get(pk=job_pk)
     context = {
         'job': job,
         'details':True
