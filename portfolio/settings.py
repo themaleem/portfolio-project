@@ -11,28 +11,31 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import environ
+
+env=environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_DIR= MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "themaleem@gmail.com"
-EMAIL_HOST_PASSWORD = 'Facebook01.'
-EMAIL_PORT='587'
-EMAIL_USE_TLS = True
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_PORT=env('EMAIL_PORT')
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'y%lk$o(70zt_e2v(wjlsy)t&(to7jh-*m*s5bummj=_t8j-ld('
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['maleemNG.pythonanywhere.com','127.0.0.1']
-
 
 # Application definition
 
